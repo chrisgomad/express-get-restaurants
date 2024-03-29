@@ -5,7 +5,7 @@ const db = require("../db/connection");
 
 // call app.use so we can parse the request body that contain JSON objects
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended: true}));
 
 //TODO: Create your GET Request Route Below: 
 app.get("/restaurants", async (req, res) => {
