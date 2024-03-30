@@ -72,3 +72,10 @@ test("shold delete db entry by id", async () => {
     expect(restaurants.length).toEqual(restQuantity);
     expect(restaurants[0].id).not.toEqual(1);
 })
+
+test("should return array of errors if fields aren't provided", async () => {
+    await request(app).delete("/restaurants/1");
+    const restaurants = await Restaurant.findAll({});
+    expect(restaurants.length).toEqual(restQuantity);
+    expect(restaurants[0].id).not.toEqual(1);
+});
